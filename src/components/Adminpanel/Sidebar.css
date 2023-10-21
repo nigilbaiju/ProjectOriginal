@@ -1,0 +1,35 @@
+/* Sidebar.css */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #3c2cce;
+    color: #f7f4f4;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    font-weight: bold;
+    overflow-x: hidden;
+    padding-top: 20px;
+    ;
+  }
+  .sidebar a{
+    text-decoration:  none;
+  }
+  .sidebar ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    color: chartreuse;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover {
+    background-color: #f7fbfd;
+    
+  }
+  
+

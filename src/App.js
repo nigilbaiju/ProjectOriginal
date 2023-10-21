@@ -1,8 +1,10 @@
-import { Home } from '@mui/icons-material';
 import './App.css';
 import Login from './components/Login/Login';
 import React, { useEffect, useState } from 'react'
 import Topbar from './components/Adminpanel/Topbar';
+import Product from './components/Product/Product';
+import ProductView from './components/Product/ProductView';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [isloggedin,setIsloggedin] =useState(false);
@@ -26,10 +28,21 @@ setIsloggedin(false);
 
   return (
     <div className="App">
-        <React.Fragment>
-            { !isloggedin && <Topbar checkLogOut={Logoutcheck}/>}
-            { isloggedin && <Login checkLogin={Logincheck}/>}
-        </React.Fragment>
+       <React.Fragment>
+          { !isloggedin && <Topbar checkLogOut={Logoutcheck}/>}
+          { isloggedin && <Login checkLogin={Logincheck}/>}
+       </React.Fragment> 
+       
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/product'} element={<Product/>}/>
+          <Route path={'/productview'} element={<ProductView/>}/>
+        </Routes>
+      </BrowserRouter>
+
+
+      {/* <Product/>  */}
+       {/* <ProductView/> */}
     </div>
   );
 }
