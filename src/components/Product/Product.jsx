@@ -78,28 +78,28 @@ const Product = () => {
 
 
     return (
-        <div class="container">
+        <div className="container">
             <h2>To Add New Products</h2>
             <br/>
             <form>
 
-                <div class="form-group">
+                <div className="form-group">
                     <label>Product Code</label>
                     <input value={pcode} type="text" required onChange={readPcode} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Product Name</label>
                     <input value={pname}type="text" required onChange={readPName} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Price</label>
                     <input value={price}type="number" required onChange={readPrice} />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Description</label>
                     <textarea rows="4" value={description} required onChange={readDescription}></textarea>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label>Status</label>
                     <select required onClick={readStatus}>
                         <option value="ACTIVE">ACTIVE</option>
