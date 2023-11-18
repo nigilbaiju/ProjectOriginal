@@ -10,7 +10,7 @@ const Sidebar = () => {
         Registrations
        <ul>
         <a href='/product'><li>Product</li></a>
-        <li>Category</li>
+        <a href='/category'><li>Category</li></a>
         <li>Customer</li>
        </ul>
        View

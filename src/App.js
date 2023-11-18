@@ -5,6 +5,7 @@ import Topbar from './components/Adminpanel/Topbar';
 import Product from './components/Product/Product';
 import ProductView from './components/Product/ProductView';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Category from './components/Category/Category';
 
 function App() {
   const [isloggedin,setIsloggedin] =useState(false);
@@ -37,6 +38,7 @@ setIsloggedin(false);
         <Routes>
           <Route path={'/product'} element={<Product/>}/>
           <Route path={'/productview'} element={<ProductView/>}/>
+          <Route path={'/category'} element={<Category method="post"/>}/>
         </Routes>
       </BrowserRouter>
 
