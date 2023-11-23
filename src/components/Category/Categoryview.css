@@ -2,6 +2,15 @@
 {
     margin-left:260px;
 }
+
+.bu {
+    background-color: #007BFF !important;
+    color: #eee9e9 !important;
+    padding: 10px 15px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
 .center {
     display: flex;
     justify-content: center;

@@ -4,11 +4,9 @@ import './Category.css'
 import { uid } from 'uid'
 import { useNavigate } from 'react-router-dom'
 
-
-
-const Category = () => {
-    var [inputs,setInputs] =useState({"cid":'',"ccode":'',"cname":'',"status":'ACTIVE'});
-    const [error, setError] = useState(false);
+const Categoryedit = (props) => {
+    //  var [inputs,setInputs] =useState({"cid":'',"ccode":'',"cname":'',"status":'ACTIVE'})
+    var [inputs,setInputs] =useState(props.data)
     const navigate = useNavigate();
 
 
@@ -20,12 +18,9 @@ const inputHandler = (e) => {
    
  const saveData =(event) =>{
     event.preventDefault();
-    if (inputs.ccode.trim() === '' || inputs.cname.trim() === '' || inputs.status.trim()==='') {
-        setError(true);
-        return;
-    }
-    else {
-            setError(false);
+        if(props.method === "post")
+        {
+            // setError(false);
             const cid = uid();
             inputs.cid=cid;
             axios.post("http://localhost:3005/cnew",inputs)
@@ -34,9 +29,18 @@ const inputHandler = (e) => {
                 navigate('/categoryview');
                 })
             .catch(err=>console.log(err))  
-           
-    }   
-}   
+        }
+        if(props.method ==='put')
+        {
+            axios.put("http://localhost:3005/cedit/"+inputs._id,inputs)
+            .then((response) =>{
+                alert("Record Updated")
+                window.location.reload(false);
+                })
+            .catch(err=>console.log(err))  
+
+        }
+    }      
   return (
     <div className="container">
         <h2>To Add New Category</h2>
@@ -64,10 +68,9 @@ const inputHandler = (e) => {
              
              
             </form>
-            <br/>
-            {error && "All fields must be entered"}
     </div>
   )
 }
 
-export default Category
+
+export default Categoryedit

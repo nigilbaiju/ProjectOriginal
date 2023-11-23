@@ -11,6 +11,7 @@ const Sidebar = () => {
        <ul>
         <a href='/product'><li>Product</li></a>
         <a href='/category'><li>Category</li></a>
+        <a href='/item'><li>Item</li></a>
         <li>Customer</li>
        </ul>
        View

@@ -8,7 +8,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+  
+  
   }
+  
   
   /* Header styles */
   .header {
@@ -81,4 +84,5 @@ body {
     text-align: center;
     padding: 1rem;
   }
-  
+
+

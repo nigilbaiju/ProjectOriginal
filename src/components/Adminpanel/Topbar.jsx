@@ -1,10 +1,11 @@
 
 import './Topbar.css'
+import './Home.css'
 
 
 const Topbar = (props) => {
   return (
-    <div className='topbar'>
+    <div className='topbar' >
       <div className="topbarwrapper">
         <div className="topleft">
           <span className="logo">

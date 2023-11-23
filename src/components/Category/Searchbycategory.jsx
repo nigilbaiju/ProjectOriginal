@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, {  useState } from 'react'
 import './Categoryview.css'
 import { Delete,Edit} from '@mui/icons-material';
-import Category from './Category';
+import Category from './Categoryedit';
 
 const Searchbycategory = (data) => {
     var [categoryview,setCategoryview] = useState([]);
@@ -47,7 +47,9 @@ const Searchbycategory = (data) => {
     <div className='bb'>
         <br/>
         <TextField  label="Search by Name" variant="outlined" value={searchitem} onChange={readsearrchvalue} />
-        <Button onClick={searchhandler}>Search</Button>
+        <br/>
+        <br/>
+        <Button className='bu' onClick={searchhandler}>Search</Button>
         <br/>
         <TableContainer className='center'>
         <Table className='styled-table' >

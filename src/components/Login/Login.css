@@ -8,6 +8,8 @@
     height: 100vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: #f8f9fd;
+    background-image: url("C:\nigil\ProjectOriginal\shopmgt\src\images\back.jpg");
+    background-size: cover;
   }
   
   input[type="text"],

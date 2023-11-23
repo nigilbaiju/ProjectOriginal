@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './Categoryview.css'
 import { Delete,Edit} from '@mui/icons-material';
-import Category from './Category';
+import Category from './Categoryedit';
 
 const Categoryview = () => {
     var [categoryview,setCategoryview] = useState([]);
@@ -17,13 +17,16 @@ const Categoryview = () => {
         .catch(err => console.log(err))
     },[])
 
+    
     const deletevalues = (cid) =>{
+
         console.log("deleted",cid)
-        axios.delete("http://localhost:3005/deletec/"+cid)
+         axios.put("http://localhost:3005/updatestatus/"+cid)
         .then((response) => {
-            alert("Deleted")
+            alert("Status Updated")
             window.location.reload(false);
     })
+
     }
 
     const updatevalues = (value) => {

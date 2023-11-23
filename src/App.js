@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Category from './components/Category/Category';
 import Categoryview from './components/Category/Categoryview';
 import Searchbycategory from './components/Category/Searchbycategory';
+import Item from './components/Category/Item';
 
 function App() {
   const [isloggedin,setIsloggedin] =useState(false);
@@ -43,6 +44,7 @@ setIsloggedin(false);
           <Route path={'/category'} element={<Category method="post"/>}/>
           <Route path={'/categoryview'} element={<Categoryview method="get"/>}/>
           <Route path={'/searchcategory'} element={<Searchbycategory method="get"/>}/>
+          <Route path={'/item'} element={<Item />}/>
         </Routes>
       </BrowserRouter>
 
