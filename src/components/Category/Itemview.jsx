@@ -20,16 +20,16 @@ const Itemview = () => {
         .catch(err => console.log(err))
     },[])
 
-    const fetchCategoryData = async (cid) => {
-        try {
-          const response = await fetch("http://localhost:3005/cview/"+cid);
-          const data = await response.json();
-          setCategoryview(data);
-        } 
-        catch (error) {
-          console.error('Error fetching CNAME data:', error);
-        }
-      };
+    // const fetchCategoryData = async (cid) => {
+    //     try {
+    //       const response = await fetch("http://localhost:3005/cview/"+cid);
+    //       const data = await response.json();
+    //       setCategoryview(data);
+    //     } 
+    //     catch (error) {
+    //       console.error('Error fetching CNAME data:', error);
+    //     }
+    //   };
   
 
     
@@ -72,17 +72,20 @@ const Itemview = () => {
                         <TableRow key={index}>
                              <TableCell>{value.icode}</TableCell>
                             <TableCell>{value.iname}</TableCell>
-                            <TableCell>{value.cid}</TableCell> 
+                            <TableCell>{value.cat[index].cname}</TableCell> 
                           
                              
                             <TableCell>
                             {/* npm install --save buffer */}
                             <img src={`data:image/jpeg;base64,${Buffer.from(value.image.data).toString('base64')}`} width="50" height="50"/>
+                            
                             </TableCell>   
+
                             <TableCell>{value.status}</TableCell>
                             {/* <TableCell><button><Edit style={{ color: 'blue' }} onClick={()=>updatevalues(value)} /></button></TableCell>
                             <TableCell><button><Delete style={{ color: 'red' }} onClick={()=>deletevalues(value._id)} /></button></TableCell> */}
                         </TableRow>
+                        
                         
                     )
                 })}
