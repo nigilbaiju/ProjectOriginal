@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const Item = () => {
+const Itemedit = () => {
     var [inputs,setInputs] =useState({"icode":'',"iname":'',"cid":'',"status":'ACTIVE'});
     var [categoryview,setCategoryview] = useState([]);
     const [error, setError] = useState(false);
@@ -27,7 +27,30 @@ const Item = () => {
         setInputs((inputs) => ({...inputs,[name]:value}))
     }
     
-    
+    const saveimage =(event) => {
+        if (!selectedImage) {
+            console.error('No image selected');
+            return;
+          }
+        // Create a FormData object to send the image as a binary file
+          const formData = new FormData();
+          formData.append('image', selectedImage);
+        
+          // Make a POST request to the server
+          fetch('http://localhost:3005/upload', {
+            method: 'POST',
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log('Image uploaded successfully:', data.message);
+              // TODO: You can perform additional actions after a successful upload
+            })
+            .catch((error) => {
+              console.error('Error uploading image:', error);
+            });
+    }
+
 
     const saveData =(event) =>{
         event.preventDefault();
@@ -91,7 +114,7 @@ const Item = () => {
 
             <div className="form-group">
                 <label>Image</label>
-                {/* <img src={inputs.iphoto} alt='' width="50" height="50" />&nbsp;&nbsp;&nbsp;&nbsp; */}
+                <img src={inputs.iphoto} alt='' width="50" height="50" />&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="file" onChange={handleImageChange} />               
             </div>
 
@@ -105,7 +128,7 @@ const Item = () => {
             </div> 
             
             <input type="submit" value="Register Item" onClick={saveData} />
-            
+            <input type="submit" value="Save Image" onClick={saveimage} />    
          
         </form>
         <br/>
@@ -115,4 +138,4 @@ const Item = () => {
   )
 }
 
-export default Item
+export default Itemedit

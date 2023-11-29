@@ -9,6 +9,7 @@ import Category from './components/Category/Category';
 import Categoryview from './components/Category/Categoryview';
 import Searchbycategory from './components/Category/Searchbycategory';
 import Item from './components/Category/Item';
+import Itemview from './components/Category/Itemview';
 
 function App() {
   const [isloggedin,setIsloggedin] =useState(false);
@@ -44,7 +45,8 @@ setIsloggedin(false);
           <Route path={'/category'} element={<Category method="post"/>}/>
           <Route path={'/categoryview'} element={<Categoryview method="get"/>}/>
           <Route path={'/searchcategory'} element={<Searchbycategory method="get"/>}/>
-          <Route path={'/item'} element={<Item />}/>
+          <Route path={'/item'} element={<Item method="post"/>}/>
+          <Route path={'/itemview'} element={<Itemview method="get"/>}/>
         </Routes>
       </BrowserRouter>
 
