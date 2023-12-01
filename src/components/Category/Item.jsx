@@ -81,7 +81,7 @@ const Item = () => {
                     {
                     categoryview.map((value,index)=>{
                     return(
-                        <option key={index} value={value.cid}>{value.cname}</option>
+                        <option key={index} value={value._id}>{value.cname}</option>
                           )
                     
                 })}

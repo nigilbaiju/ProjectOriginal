@@ -34,22 +34,21 @@ const Itemview = () => {
 
     
 
-    // const deletevalues = (cid) =>{
+    const deletevalues = (id) =>{
+        console.log("deleted",id)
+         axios.put("http://localhost:3005/updatestatusitem/"+id)
+        .then((response) => {
+            alert("Status Updated")
+            window.location.reload(false);
+    })
 
-    //     console.log("deleted",cid)
-    //      axios.put("http://localhost:3005/updatestatus/"+cid)
-    //     .then((response) => {
-    //         alert("Status Updated")
-    //         window.location.reload(false);
-    // })
+    }
 
-    // }
-
-    // const updatevalues = (value) => {
-    //     console.log("updated",value)
-    //     setSelected(value);
-    //     setUpdate(true);
-    // }
+    const updatevalues = (value) => {
+        console.log("updated",value)
+        setSelected(value);
+        setUpdate(true);
+    }
 
     var result=
     <div className='bb'>
@@ -72,18 +71,15 @@ const Itemview = () => {
                         <TableRow key={index}>
                              <TableCell>{value.icode}</TableCell>
                             <TableCell>{value.iname}</TableCell>
-                            <TableCell>{value.cat[index].cname}</TableCell> 
-                          
-                             
+                            <TableCell>{value.cat[0].cname}</TableCell> 
                             <TableCell>
                             {/* npm install --save buffer */}
-                            <img src={`data:image/jpeg;base64,${Buffer.from(value.image.data).toString('base64')}`} width="50" height="50"/>
-                            
+                            <img src={`data:image/jpeg;base64,${Buffer.from(value.image.data)}`} width="50" height="50" alt='Error' />                           
                             </TableCell>   
 
                             <TableCell>{value.status}</TableCell>
-                            {/* <TableCell><button><Edit style={{ color: 'blue' }} onClick={()=>updatevalues(value)} /></button></TableCell>
-                            <TableCell><button><Delete style={{ color: 'red' }} onClick={()=>deletevalues(value._id)} /></button></TableCell> */}
+                            <TableCell><button><Edit style={{ color: 'blue' }} onClick={()=>updatevalues(value)} /></button></TableCell>
+                            <TableCell><button><Delete style={{ color: 'red' }} onClick={()=>deletevalues(value._id)} /></button></TableCell>
                         </TableRow>
                         
                         
